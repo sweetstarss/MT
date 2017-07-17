@@ -24,5 +24,6 @@ pipeline {
                 //dordoka/tomcat是镜像名
                 //sh ‘docker run --name key -p 11111:8080 -d dordoka/tomcat’
                 //将制品复制到容器内
-                //sh ‘docker cp MachineTranslation.jar MachineTranslation:/opt/tomcat/webapps/’}}}}
+                //sh ‘docker cp MachineTranslation.jar MachineTranslation:/opt/tomcat/webapps/’
+		}}}}
 
