@@ -1,14 +1,21 @@
 pipeline {
-    agent any //Ê¹ÓÃµÄÖ´ĞĞ½Úµã
+    agent any //ä½¿ç”¨çš„æ‰§è¡ŒèŠ‚ç‚¹
     tools {
-        //¶¨Òå¹¤¾ß£¬ÒıºÅÀïµÄÃû×Ö²»ÄÜ¸Ä£¬Õâ¸öÊÇ¹ÜÀíÔ±ÅäÖÃµÄÃû×Ö
-        maven ¡®Maven¡¯}
+        //å®šä¹‰å·¥å…·ï¼Œå¼•å·é‡Œçš„åå­—ä¸èƒ½æ”¹ï¼Œè¿™ä¸ªæ˜¯ç®¡ç†å‘˜é…ç½®çš„åå­—
+        maven â€˜Mavenâ€™}
     stages {
-        stage(¡®Test¡¯) { //stage±íÊ¾Ò»¸ö½×¶Î
-            steps { //steps°üº¬Ö´ĞĞ²½Öè
-                //Ê¹ÓÃSonarQube»·¾³£¬ÒıºÅÀïµÄÃû×ÖÒ²²»ÄÜ¸Ä
-                withSonarQubeEnv(¡®SonarQube¡¯) {
-                    //Ö´ĞĞMavenÃüÁî£¬ÇåÀíºó½øĞĞ´úÂë²âÊÔ
-                    sh ¡®mvn clean sonar:sonar¡¯}}}}}
+        stage(â€˜Testâ€™) { //stageè¡¨ç¤ºä¸€ä¸ªé˜¶æ®µ
+            steps { //stepsåŒ…å«æ‰§è¡Œæ­¥éª¤
+                //ä½¿ç”¨SonarQubeç¯å¢ƒï¼Œå¼•å·é‡Œçš„åå­—ä¹Ÿä¸èƒ½æ”¹
+                withSonarQubeEnv(â€˜SonarQubeâ€™) {
+                    //æ‰§è¡ŒMavenå‘½ä»¤ï¼Œæ¸…ç†åè¿›è¡Œä»£ç æµ‹è¯•
+                    sh â€˜mvn clean sonar:sonarâ€™}}}
+        stage('Build') {
+            steps {
+                sh â€˜mvn packageâ€™ //ä½¿ç”¨Mavenæ‰“åŒ…
+                //å½’æ¡£åˆ¶å“ï¼Œå¯ä»¥åœ¨Jenkinsé¡¹ç›®ä¸»é¡µçœ‹åˆ°å¹¶å¯ä»¥ä¸‹è½½
+                //éœ€è¦ä¿®æ”¹åˆ¶å“çš„ç›¸å¯¹ç›®å½•
+                archive â€˜MachineTranslation.jarâ€™}}}}
+
 
 
