@@ -15,15 +15,6 @@ pipeline {
                 sh ‘mvn package’ //使用Maven打包
                 //归档制品，可以在Jenkins项目主页看到并可以下载
                 //需要修改制品的相对目录
-                archive ‘MachineTranslation.jar’}}
-        stage('Deploy') {
-            steps { //key是各自的项目ID
-                sh ‘docker stop MachineTranslation || true’ //停止之前的容器
-                sh ‘docker rm MachineTranslation || true’ //删除之前的容器
-                //启动容器，冒号前面的端口号每个组要不同
-                //dordoka/tomcat是镜像名
-                //sh ‘docker run --name key -p 11111:8080 -d dordoka/tomcat’
-                //将制品复制到容器内
-                //sh ‘docker cp MachineTranslation.jar MachineTranslation:/opt/tomcat/webapps/’
-		}}}}
+                archive ‘MachineTranslation.jar’}}}}
+
 
